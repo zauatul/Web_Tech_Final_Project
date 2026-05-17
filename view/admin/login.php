@@ -20,7 +20,7 @@ document.getElementById("email").value;
 var password =
 document.getElementById("password").value;
 
-if(email == "6")
+if(email == "")
 {
    alert("Email Required");
    return false;
