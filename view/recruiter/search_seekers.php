@@ -11,19 +11,19 @@
 <head>
 <meta charset="utf-8">
 <title>Search Seekers</title>
-<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/recruiter.css">
 <script src="../../assets/js/recruiter.js"></script>
 </head>
 
-<body class="employer-body">
+<body >
 
-<div class="employer-shell">
+<div class="dash_container">
 
     <?php include __DIR__ . "/recruiter_nav.php"; ?>
     
         <div class="employer-main wide">
             <h1>Search Seekers</h1>
-            <div class="filter-bar">
+            <div >
                 <label>Keyword</label>
                 <input type="text" id="keyword" placeholder="name, skill, location">
                 <button type="button" onclick="recruiterSearchSeekers()">Search</button>

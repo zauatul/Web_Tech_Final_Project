@@ -19,13 +19,13 @@ if(isset($_SESSION["role"])){
 
 <title>Recruiter Login</title>
 
-<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/recruiter.css">
 
 </head>
 
 <body>
 
-<div class="container employer-auth">
+<div class="container">
 
 <h2>Recruiter Login</h2>
 

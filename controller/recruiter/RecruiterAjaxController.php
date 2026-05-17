@@ -1,9 +1,6 @@
 <?php
 
-include_once __DIR__ . "/../../config/RecruiterAuth.php";
 include_once __DIR__ . "/../../model/RecruiterModel.php";
-
-requireRecruiterJson();
 
 header("Content-Type: application/json; charset=utf-8");
 

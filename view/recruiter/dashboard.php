@@ -22,70 +22,70 @@ $jobs = listPostedJobs($recruiterId);
 
 <title>Recruiter Dashboard</title>
 
-<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/recruiter.css">
 
 </head>
 
-<body class="employer-body">
+<body >
 
-<div class="employer-shell">
+    <div class="dash_container">
 
-<?php include __DIR__ . "/recruiter_nav.php"; ?>
+        <?php include __DIR__ . "/recruiter_nav.php"; ?>
 
-<div class="employer-main wide">
+        <div>
 
-<h1>Recruiter Dashboard</h1>
+        <h1>Recruiter Dashboard</h1>
 
-<div class="stat-grid">
+        <div class="stat-grid">
 
-<div class="stat-card">
-<div class="num"><?php echo mysqli_num_rows($clients); ?></div>
-<div class="lbl">Clients</div>
-</div>
+        <div class="stat-card">
+        <div class="num"><?php echo mysqli_num_rows($clients); ?></div>
+        <div class="lbl">Clients</div>
+        </div>
 
-<div class="stat-card">
-<div class="num"><?php echo mysqli_num_rows($jobs); ?></div>
-<div class="lbl">Posted Jobs</div>
-</div>
+        <div class="stat-card">
+        <div class="num"><?php echo mysqli_num_rows($jobs); ?></div>
+        <div class="lbl">Posted Jobs</div>
+        </div>
 
-</div>
+        </div>
 
-<h2>Recent Jobs</h2>
+        <h2>Recent Jobs</h2>
 
-<table class="employer-table">
+        <table class="re_table">
 
-<tr>
-<th>Job</th>
-<th>Client</th>
-<th>Status</th>
-<th>Created</th>
-</tr>
+        <tr>
+        <th>Job</th>
+        <th>Client</th>
+        <th>Status</th>
+        <th>Created</th>
+        </tr>
 
-<?php
+        <?php
 
-while($j = mysqli_fetch_assoc($jobs))
-{
+        while($j = mysqli_fetch_assoc($jobs))
+        {
 
-?>
+        ?>
 
-<tr>
-<td><?php echo htmlspecialchars($j["title"]); ?></td>
-<td><?php echo htmlspecialchars($j["company_name"]); ?></td>
-<td><?php echo htmlspecialchars($j["status"]); ?></td>
-<td><?php echo htmlspecialchars($j["created_at"]); ?></td>
-</tr>
+        <tr>
+        <td><?php echo htmlspecialchars($j["title"]); ?></td>
+        <td><?php echo htmlspecialchars($j["company_name"]); ?></td>
+        <td><?php echo htmlspecialchars($j["status"]); ?></td>
+        <td><?php echo htmlspecialchars($j["created_at"]); ?></td>
+        </tr>
 
-<?php
+        <?php
 
-}
+        }
 
-?>
+        ?>
 
-</table>
+        </table>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </body>
 </html>

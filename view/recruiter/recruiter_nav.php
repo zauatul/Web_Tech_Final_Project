@@ -4,7 +4,7 @@ $navSelf = basename($_SERVER["PHP_SELF"]);
 
 ?>
 
-<nav class="employer-nav">
+<nav class="nav">
 
 <a href="dashboard.php" <?php if($navSelf == "dashboard.php"){ echo "class='active'"; } ?>>Dashboard</a>
 

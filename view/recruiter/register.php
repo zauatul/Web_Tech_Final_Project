@@ -16,13 +16,13 @@ Recruiter Register
 </title>
 
 <link rel="stylesheet"
-href="../../assets/css/style.css">
+href="../../assets/css/recruiter.css">
 
 </head>
 
 <body>
 
-<div class="container employer-auth">
+<div class="container">
 
 <h2>
 Recruiter Registration

@@ -16,17 +16,17 @@ $cats = listCategories();
 
 <title>Post Job</title>
 
-<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/recruiter.css">
 
 </head>
 
-<body class="employer-body">
+<body class="dash_container">
 
-<div class="employer-shell">
+<div>
 
 <?php include "recruiter_nav.php"; ?>
 
-<div class="employer-main wide">
+<div>
 
 <h1>Post Job For Client</h1>
 

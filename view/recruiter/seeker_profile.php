@@ -38,85 +38,85 @@ if(!$row)
 
 <title>Seeker Profile</title>
 
-<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/recruiter.css">
 
 </head>
 
-<body class="employer-body">
+<body class="dash_container">
 
-<div class="employer-shell">
+    <div>
 
-<?php include __DIR__ . "/recruiter_nav.php"; ?>
+        <?php include __DIR__ . "/recruiter_nav.php"; ?>
 
-<div class="employer-main wide">
+        <div class="employer-main wide">
 
-<h1>Seeker Profile</h1>
+        <h1>Seeker Profile</h1>
 
-<h2><?php echo $row["name"]; ?></h2>
+        <h2><?php echo $row["name"]; ?></h2>
 
-<p><?php echo $row["email"]; ?> | <?php echo $row["phone"]; ?></p>
+        <p><?php echo $row["email"]; ?> | <?php echo $row["phone"]; ?></p>
 
-<div class="card">
+        <div class="card">
 
-<p><strong>Headline:</strong> <?php echo $row["headline"]; ?></p>
+            <p><strong>Headline:</strong> <?php echo $row["headline"]; ?></p>
 
-<p><strong>Summary:</strong> <?php echo nl2br($row["summary"]); ?></p>
+            <p><strong>Summary:</strong> <?php echo nl2br($row["summary"]); ?></p>
 
-<p><strong>Skills:</strong> <?php echo $row["skills"]; ?></p>
+            <p><strong>Skills:</strong> <?php echo $row["skills"]; ?></p>
 
-<p><strong>Experience:</strong> <?php echo $row["years_experience"]; ?> years</p>
+            <p><strong>Experience:</strong> <?php echo $row["years_experience"]; ?> years</p>
 
-<p><strong>Education:</strong> <?php echo $row["education_level"]; ?></p>
+            <p><strong>Education:</strong> <?php echo $row["education_level"]; ?></p>
 
-<p><strong>Preferred Location:</strong> <?php echo $row["preferred_location"]; ?></p>
+            <p><strong>Preferred Location:</strong> <?php echo $row["preferred_location"]; ?></p>
 
-</div>
+        </div>
 
-<h2>Send Outreach</h2>
+        <h2>Send Outreach</h2>
 
-<form method="post">
+        <form method="post">
 
-<input type="hidden" name="seeker_id" value="<?php echo $row["id"]; ?>">
+            <input type="hidden" name="seeker_id" value="<?php echo $row["id"]; ?>">
 
-<label>Subject</label>
+            <label>Subject</label>
 
-<input type="text" name="subject" value="<?php echo $subject; ?>">
+            <input type="text" name="subject" value="<?php echo $subject; ?>">
 
-<span class="msg err"><?php echo $subjectErr; ?></span>
+            <span class="msg err"><?php echo $subjectErr; ?></span>
 
-<label>Message</label>
+            <label>Message</label>
 
-<textarea name="message" rows="5"><?php echo $message; ?></textarea>
+            <textarea name="message" rows="5"><?php echo $message; ?></textarea>
 
-<span class="msg err"><?php echo $messageErr; ?></span>
+            <span class="msg err"><?php echo $messageErr; ?></span>
 
-<input type="submit" value="Send Message">
+            <input type="submit" value="Send Message">
 
-</form>
+        </form>
 
-<?php
+        <?php
 
-if($success != "")
-{
-    echo "<p class='msg ok'>$success</p>";
-}
+        if($success != "")
+        {
+            echo "<p class='msg ok'>$success</p>";
+        }
 
-?>
+        ?>
 
-<?php
+        <?php
 
-if($outreachErr != "")
-{
-    echo "<p class='msg err'>$outreachErr</p>";
-}
+        if($outreachErr != "")
+        {
+            echo "<p class='msg err'>$outreachErr</p>";
+        }
 
-?>
+        ?>
 
-<p><a href="search_seekers.php">Back to Search</a></p>
+        <p><a href="search_seekers.php">Back to Search</a></p>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </body>
 
