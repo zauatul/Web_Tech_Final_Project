@@ -1,12 +1,9 @@
 <?php
 
 session_start();
-
 session_destroy();
 
-header(
-"location:login.php"
-);
+header("location:../../view/recruiter/login.php");
 exit();
 
 ?>
