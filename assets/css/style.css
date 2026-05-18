@@ -162,6 +162,16 @@ a:hover
     background: #0056cc;
 }
 
+.dashboard-links a.active
+{
+    background: #0056cc;
+}
+
+.seeker-nav
+{
+    margin-bottom: 20px;
+}
+
 
 
 /* =========================
