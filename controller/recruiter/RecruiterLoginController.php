@@ -1,8 +1,7 @@
 <?php
 
-session_start();
 
-include_once __DIR__ . "/../../model/RecruiterModel.php";
+require_once "../../model/RecruiterModel.php";
 
 $email = "";
 $password = "";

@@ -1,13 +1,5 @@
-<?php
-
-// include_once __DIR__ . "/../../config/RecruiterAuth.php";
-// requireRecruiter();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="utf-8">
 <title>Search Seekers</title>
@@ -19,9 +11,9 @@
 
 <div class="dash_container">
 
-    <?php include __DIR__ . "/recruiter_nav.php"; ?>
+    <?php require "recruiter_nav.php"; ?>
     
-        <div class="employer-main wide">
+        <div class>
             <h1>Search Seekers</h1>
             <div >
                 <label>Keyword</label>

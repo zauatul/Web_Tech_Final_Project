@@ -1,8 +1,6 @@
 <?php
 
-session_start();
-
-include_once __DIR__ . "/../../model/RecruiterModel.php";
+require_once "../../model/RecruiterModel.php";
 
 $recruiterId = $_SESSION["user_id"];
 
@@ -105,29 +103,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $experienceLevel = $_POST["experience_level"];
     }
 
-    if(
-        $employerErr == "" &&
-        $categoryErr == "" &&
-        $titleErr == "" &&
-        $deadlineErr == ""
-    )
+    if($employerErr == "" && $categoryErr == "" && $titleErr == "" && $deadlineErr == "")
     {
-        $ok = createJobForClient(
-            $recruiterId,
-            $employerId,
-            $categoryId,
-            $title,
-            $description,
-            $requirements,
-            $benefits,
-            $salaryMin,
-            $salaryMax,
-            $location,
-            $jobType,
-            $experienceLevel,
-            $deadline,
-            "active"
-        );
+        $ok = createJobForClient($recruiterId, $employerId, $categoryId, $title, $description, $requirements, $benefits, 
+        $salaryMin, $salaryMax, $location, $jobType, $experienceLevel, $deadline, "active");
 
         if($ok)
         {
@@ -138,6 +117,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             $jobErr = "Database error";
         }
     }
+
+    
+    
 }
 
 ?>

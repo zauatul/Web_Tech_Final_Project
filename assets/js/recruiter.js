@@ -4,34 +4,16 @@ function recruiterSearchSeekers()
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open(
-        "POST",
-        "../../controller/recruiter/RecruiterAjaxController.php",
-        true
-    );
-
-    xhr.setRequestHeader(
-        "Content-type",
-        "application/x-www-form-urlencoded"
-    );
-
     xhr.onreadystatechange = function()
     {
         if(xhr.readyState == 4 && xhr.status == 200)
         {
             var data = JSON.parse(xhr.responseText);
-
             var box = document.getElementById("search-results");
 
             var html = "";
 
-            if(data.ok == false)
-            {
-                html = "Search failed";
-            }
-            else
-            {
-                html += "<table class='employer-table'>";
+             html += "<table class='employer-table'>";
 
                 html += "<tr>";
                 html += "<th>Name</th>";
@@ -63,11 +45,21 @@ function recruiterSearchSeekers()
                 }
 
                 html += "</table>";
-            }
 
             box.innerHTML = html;
         }
     };
+    
+    xhr.open(
+        "POST",
+        "../../controller/recruiter/RecruiterAjaxController.php",
+        true
+    );
+
+    xhr.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+    );
 
     xhr.send(
         "action=search_seekers&keyword="

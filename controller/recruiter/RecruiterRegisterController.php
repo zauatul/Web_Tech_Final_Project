@@ -1,8 +1,6 @@
 <?php
 
-session_start();
-
-include_once __DIR__ . "/../../model/RecruiterModel.php";
+require_once "../../model/RecruiterModel.php";
 
 
 $name = "";
@@ -22,8 +20,6 @@ $success = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-
-    // NAME
     if(empty($_POST["name"]))
     {
         $nameErr = "Name is required";
@@ -39,7 +35,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
 
 
-    // EMAIL
     if(empty($_POST["email"]))
     {
         $emailErr = "Email is required";
@@ -59,7 +54,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
 
 
-    // PASSWORD
     if(empty($_POST["password"]))
     {
         $passwordErr = "Password is required";
@@ -76,7 +70,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
 
 
-    // PHONE
     if(!empty($_POST["phone"]))
     {
         $phone = trim($_POST["phone"]);
@@ -89,7 +82,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
 
 
-    // AGENCY
     if(empty($_POST["agency_name"]))
     {
         $agencyErr =
@@ -103,33 +95,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 
 
-    // INSERT
-    if(
-        $nameErr == "" &&
-        $emailErr == "" &&
-        $passwordErr == "" &&
-        $phoneErr == "" &&
-        $agencyErr == ""
-    )
+    if($nameErr == "" && $emailErr == "" && $passwordErr == "" && $phoneErr == "" && $agencyErr == "")
     {
 
-        $id = registerRecruiter(
-            $name,
-            $email,
-            $password,
-            $phone,
-            $agencyName
-        );
-
+        $id = registerRecruiter($name, $email, $password, $phone, $agencyName);
         if($id)
         {
-            $success =
-            "Registration successful";
+            $success = "Registration successful";
         }
         else
         {
-            $emailErr =
-            "Database error";
+            $emailErr = "Database error";
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
-
-include_once "../../controller/recruiter/RecruiterLoginController.php";
+session_start();
+require_once "../../controller/recruiter/RecruiterLoginController.php";
 
 if(isset($_SESSION["role"])){
     if($_SESSION["role"] == "recruiter"){
@@ -12,17 +12,11 @@ if(isset($_SESSION["role"])){
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
-
 <title>Recruiter Login</title>
-
 <link rel="stylesheet" href="../../assets/css/recruiter.css">
-
 </head>
-
 <body>
 
 <div class="container">
@@ -32,15 +26,11 @@ if(isset($_SESSION["role"])){
 <form method="post">
 
 <label>Email</label>
-
 <input type="email" name="email" value="<?php echo $email; ?>">
-
 <span class="msg err"><?php echo $emailErr; ?></span>
 
 <label>Password</label>
-
 <input type="password" name="password">
-
 <span class="msg err"><?php echo $passwordErr; ?></span>
 
 <input type="submit" value="Log In">

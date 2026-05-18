@@ -1,7 +1,6 @@
 <?php
 
-
-include_once __DIR__ . "/../../model/RecruiterModel.php";
+require_once "../../model/RecruiterModel.php";
 
 $companyNameOverride = "";
 
@@ -28,11 +27,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     if($employerErr == "")
     {
-        $ok = addClient(
-            $recruiterId,
-            $employerId,
-            $companyNameOverride
-        );
+        $ok = addClient( $recruiterId, $employerId, $companyNameOverride );
 
         if($ok)
         {

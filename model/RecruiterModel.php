@@ -125,6 +125,7 @@ function createJobForClient($recruiterId, $employerId, $categoryId, $title, $des
 
     if(!clientBelongsToRecruiter($recruiterId, $employerId)){
         return false;
+        echo "isuuse";
     }
 
     $sql = "INSERT INTO jobs (employer_id,recruiter_id,category_id,title,description,requirements,benefits,salary_min,salary_max,location,job_type,experience_level,deadline,status,is_featured) VALUES ('$employerId','$recruiterId','$categoryId','$title','$description','$requirements','$benefits','$salaryMin','$salaryMax','$location','$jobType','$experienceLevel','$deadline','$status',0)";

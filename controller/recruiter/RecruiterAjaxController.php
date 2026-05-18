@@ -1,21 +1,8 @@
 <?php
 
-include_once __DIR__ . "/../../model/RecruiterModel.php";
+require_once "../../model/RecruiterModel.php";
 
 header("Content-Type: application/json; charset=utf-8");
-
-if($_SERVER["REQUEST_METHOD"] != "POST")
-{
-    echo json_encode(
-        [
-            "ok" => false,
-            "error" => "Method"
-        ]
-    );
-
-    exit();
-}
-
 
 $action = "";
 
@@ -45,22 +32,11 @@ if($action == "search_seekers")
 
     echo json_encode(
         [
-            "ok" => true,
             "rows" => $rows
         ]
     );
 
-    exit();
 }
 
-
-echo json_encode(
-    [
-        "ok" => false,
-        "error" => "Unknown action"
-    ]
-);
-
-exit();
 
 ?>

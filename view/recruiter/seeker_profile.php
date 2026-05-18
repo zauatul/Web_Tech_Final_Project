@@ -4,14 +4,6 @@ session_start();
 
 include_once "../../controller/recruiter/RecruiterOutreachController.php";
 
-if(isset($_SESSION["role"]))
-{
-    if($_SESSION["role"] != "recruiter")
-    {
-        header("location: login.php");
-    }
-}
-
 $seekerId = 0;
 
 if(isset($_GET["id"]))
@@ -21,32 +13,20 @@ if(isset($_GET["id"]))
 
 $row = getSeekerProfile($seekerId);
 
-if(!$row)
-{
-    header("location:search_seekers.php");
-    exit();
-}
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
-
 <title>Seeker Profile</title>
-
 <link rel="stylesheet" href="../../assets/css/recruiter.css">
-
 </head>
-
 <body class="dash_container">
 
     <div>
 
-        <?php include __DIR__ . "/recruiter_nav.php"; ?>
+        <?php require "recruiter_nav.php"; ?>
 
         <div class="employer-main wide">
 

@@ -1,8 +1,7 @@
 <?php
-
 session_start();
 
-include_once "../../controller/recruiter/RecruiterClientController.php";
+require_once "../../controller/recruiter/RecruiterClientController.php";
 
 $recruiterId = $_SESSION["user_id"];
 
@@ -13,22 +12,16 @@ $employers = listAvailableEmployers($recruiterId);
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
-
 <title>Recruiter Clients</title>
-
 <link rel="stylesheet" href="../../assets/css/recruiter.css">
-
 </head>
-
 <body class="dash_container">
 
 <div>
 
-<?php include "recruiter_nav.php"; ?>
+<?php require "recruiter_nav.php"; ?>
 
 <div>
 
@@ -50,9 +43,7 @@ else
 <form method="post">
 
 <label>Employer</label>
-
 <select name="employer_id">
-
 <option value="">Select Employer</option>
 
 <?php
@@ -62,20 +53,16 @@ while($e = mysqli_fetch_assoc($employers))
     $name = $e["company_name"];
 
     echo "<option value='" . $e["id"] . "'>";
-
     echo $name . " - " . $e["email"];
-
     echo "</option>";
 }
 
 ?>
 
 </select>
-
 <span class="msg err"><?php echo $employerErr; ?></span>
 
 <label>Company Name Override</label>
-
 <input type="text" name="company_name_override" value="<?php echo $companyNameOverride; ?>">
 
 <input type="submit" value="Add Client">

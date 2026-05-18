@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-// include_once __DIR__ . "/../../config/RecruiterAuth.php";
-include_once __DIR__ . "/../../model/RecruiterModel.php";
-
-//requireRecruiter();
+require_once "../../model/RecruiterModel.php";
 
 $recruiterId = $_SESSION["user_id"];
 
@@ -15,22 +12,16 @@ $jobs = listPostedJobs($recruiterId);
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
-
 <title>Recruiter Dashboard</title>
-
 <link rel="stylesheet" href="../../assets/css/recruiter.css">
-
 </head>
-
 <body >
 
     <div class="dash_container">
 
-        <?php include __DIR__ . "/recruiter_nav.php"; ?>
+        <?php require "recruiter_nav.php"; ?>
 
         <div>
 
