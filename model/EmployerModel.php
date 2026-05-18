@@ -791,23 +791,50 @@ class EmployerModel
 
     }
 
-    public function insertComplaint($submitterId, $subjectId, $description)
+public function insertComplaint($submitterId, $subjectId, $description)
+{
+    $status = "open";
+    $adminNote = "";
+
+    // check subject user exists
+    $check = $this->conn->prepare(
+        "SELECT id FROM users WHERE id=?"
+    );
+
+    $check->bind_param("i", $subjectId);
+    $check->execute();
+
+    $result = $check->get_result();
+
+    if($result->num_rows == 0)
     {
-
-        $status = "open";
-        $adminNote = "";
-
-        $sql =
-        "INSERT INTO complaints (submitter_id,subject_id,description,status,admin_note)
-        VALUES (?,?,?,?,?)";
-
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("iisss", $submitterId, $subjectId, $description, $status, $adminNote);
-        $ok = $stmt->execute();
-        $stmt->close();
-        return $ok;
-
+        return false;
     }
+
+    $check->close();
+
+    $sql =
+    "INSERT INTO complaints
+    (submitter_id,subject_id,description,status,admin_note)
+    VALUES (?,?,?,?,?)";
+
+    $stmt = $this->conn->prepare($sql);
+
+    $stmt->bind_param(
+        "iisss",
+        $submitterId,
+        $subjectId,
+        $description,
+        $status,
+        $adminNote
+    );
+
+    $ok = $stmt->execute();
+
+    $stmt->close();
+
+    return $ok;
+}
 
 }
 
